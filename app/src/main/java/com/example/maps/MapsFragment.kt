@@ -29,8 +29,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private lateinit var lastLocation: Location
-
-
+    
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
