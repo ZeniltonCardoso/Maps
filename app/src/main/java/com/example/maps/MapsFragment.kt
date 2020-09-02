@@ -29,7 +29,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private lateinit var lastLocation: Location
-    
+
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
@@ -55,28 +55,28 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun placeMarker(location: LatLng) {
-        val Havan = MarkerOptions().position(LatLng(-27.099601, -48.906891))
-        val Havan_Porto_Belo = MarkerOptions().position(LatLng(-27.1597896, -48.5758767))
+        val casinha = MarkerOptions().position(LatLng(-27.099601, -48.906891))
+        val casinha1 = MarkerOptions().position(LatLng(-27.1597896, -48.5758767))
 
-        Havan_Porto_Belo.icon(
+        casinha1.icon(
             BitmapDescriptorFactory.fromBitmap(
                 BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
             )
         )
-            .title("Havan Porto Belo")
+            .title("casinha1")
             .snippet("Rod. Antônio Heil, 250 - Centro 1,")
             .snippet("Brusque - SC - 88353-100")
-        mMap.addMarker(Havan_Porto_Belo)
+        mMap.addMarker(casinha1)
 
-        Havan.icon(
+        casinha.icon(
             BitmapDescriptorFactory.fromBitmap(
                 BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
             )
         )
-            .title("Havan")
+            .title("casinha")
             .snippet("Rod. Antônio Heil, 250 - Centro 1,")
             .snippet("Brusque - SC - 88353-100")
-        mMap.addMarker(Havan)
+        mMap.addMarker(casinha)
     }
 
     private fun setUpMap() {
