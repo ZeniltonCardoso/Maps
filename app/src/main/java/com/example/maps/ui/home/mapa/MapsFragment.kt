@@ -1,4 +1,4 @@
-package com.example.maps
+package com.example.maps.ui.home.mapa
 
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import com.example.maps.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.CameraUpdateFactory
 
@@ -60,7 +61,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         casinha1.icon(
             BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
+                BitmapFactory.decodeResource(resources,
+                    R.mipmap.ic_launcher
+                )
             )
         )
             .title("casinha1")
@@ -70,7 +73,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         casinha.icon(
             BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
+                BitmapFactory.decodeResource(resources,
+                    R.mipmap.ic_launcher
+                )
             )
         )
             .title("casinha")
@@ -100,7 +105,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                 lastLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
                 placeMarker(currentLatLong)
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 10f))
             }
         }
     }
