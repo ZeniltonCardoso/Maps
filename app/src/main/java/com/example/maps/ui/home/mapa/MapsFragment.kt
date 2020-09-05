@@ -51,35 +51,23 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
+        mMap.mapType =  GoogleMap . MAP_TYPE_NORMAL
         mMap.uiSettings.isZoomControlsEnabled = true
+
+        setUpMap()
     }
 
     private fun placeMarker(location: LatLng) {
         val casinha = MarkerOptions().position(LatLng(-27.099601, -48.906891))
         val casinha1 = MarkerOptions().position(LatLng(-27.1597896, -48.5758767))
 
-        casinha1.icon(
-            BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(resources,
-                    R.mipmap.ic_launcher
-                )
-            )
-        )
+        casinha1
             .title("casinha1")
-            .snippet("Rod. Antônio Heil, 250 - Centro 1,")
             .snippet("Brusque - SC - 88353-100")
         mMap.addMarker(casinha1)
 
-        casinha.icon(
-            BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(resources,
-                    R.mipmap.ic_launcher
-                )
-            )
-        )
+        casinha
             .title("casinha")
-            .snippet("Rod. Antônio Heil, 250 - Centro 1,")
             .snippet("Brusque - SC - 88353-100")
         mMap.addMarker(casinha)
     }
@@ -99,12 +87,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
 
         mMap.isMyLocationEnabled = true
-        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+        fusedLocationClient.lastLocation.addOnSuccessListener() { location ->
 
             if (location != null) {
                 lastLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
-                placeMarker(currentLatLong)
+
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 10f))
             }
         }
