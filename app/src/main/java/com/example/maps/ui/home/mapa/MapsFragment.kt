@@ -94,7 +94,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             if (location != null) {
                 lastLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
-
+                placeMarker(currentLatLong)
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 10f))
             }
         }
